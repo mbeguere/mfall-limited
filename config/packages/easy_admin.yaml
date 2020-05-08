@@ -26,8 +26,10 @@ easy_admin:
         fields:
           - title
           - description
-          - { property: "content", type: "fos_ckeditor" }
-          - { property: "details", type: "fos_ckeditor" }
+          - content
+          - details
+          # - { property: "content", type: "fos_ckeditor" }
+          # - { property: "details", type: "fos_ckeditor" }
           - entreprise
     Type:
       class: App\Entity\Type
