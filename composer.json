@@ -82,7 +82,7 @@
       "php bin/console doctrine:migrations:migrate --no-interaction",
       "php bin/console app:create-user Mamadou FALL fayda44@yahoo.com",
       "php bin/console app:create-user Madieng MBEGUERE tomlemage@gmail.com",
-      "encore production --progress"
+      "php bin/console assets:install"
     ]
   },
   "conflict": {
