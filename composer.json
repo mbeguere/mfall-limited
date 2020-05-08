@@ -84,7 +84,7 @@
       "php bin/console app:create-user Madieng MBEGUERE tomlemage@gmail.com",
       "php bin/console assets:install --env=prod",
       "php bin/console cache:clear --env=prod",
-      "php bin/console debug:router -e=prod"
+      "php bin/console debug:router -env=prod"
     ]
   },
   "conflict": {
