@@ -82,8 +82,7 @@
       "php bin/console doctrine:migrations:migrate --no-interaction",
       "php bin/console app:create-user Mamadou FALL fayda44@yahoo.com",
       "php bin/console app:create-user Madieng MBEGUERE tomlemage@gmail.com",
-      "php bin/console assets:install",
-      "tail -n200 var/log/prod.log"
+      "php bin/console assets:install --env=prod"
     ]
   },
   "conflict": {
