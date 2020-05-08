@@ -1,0 +1,48 @@
+easy_admin:
+  entities:
+    Admin:
+      class: App\Entity\Admin
+      form:
+        fields:
+          - firstname
+          - lastname
+          - { property: "email", type: "email" }
+          - { property: "password", type: "password" }
+          - roles
+    Applicant:
+      class: App\Entity\Applicant
+      list:
+        fields:
+          - firstname
+          - lastname
+          - email
+          - experience
+          - postalCode
+          - type
+          - { property: "resume", template: "vich_uploader_image.html.twig" }
+    Job:
+      class: App\Entity\Job
+      form:
+        fields:
+          - title
+          - description
+          - { property: "content", type: "fos_ckeditor" }
+          - { property: "details", type: "fos_ckeditor" }
+          - entreprise
+    Type:
+      class: App\Entity\Type
+    Company:
+      class: App\Entity\Company
+
+  site_name: "MFALL LIMITED"
+  design:
+    menu:
+      - { entity: "Admin", icon: "user" }
+      - { entity: "Applicant", icon: "user", label: "Applicants" }
+      - { entity: "Company", icon: "building", label: "Entreprises" }
+      - { entity: "Type", icon: "tag", label: "Types" }
+      - { entity: "Job", icon: "address-card", label: "Jobs" }
+
+    form_theme:
+      - "@EasyAdmin/form/bootstrap_4.html.twig"
+      - "@FOSCKEditor/Form/ckeditor_widget.html.twig"

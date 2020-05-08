@@ -1,0 +1,5 @@
+{# templates/vich_uploader_image.html.twig #}
+<a href="{{ vich_uploader_asset(item, 'resumeFile') }}" target="_blank" class="easyadmin-thumbnail">
+	{# the second parameter is the name of the property with the UploadableField annotation #}
+	{# <img src="{{ vich_uploader_asset(item, 'resumeFile') }}"> #}
+{{ item.resume }}</a>

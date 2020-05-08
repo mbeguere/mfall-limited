@@ -1,0 +1,65 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		{{ form_start(form, {'method': 'POST', 'action': path('job_index', {'slug': job.slug})})}}
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body mb-4" style="font-size: 14px;">
+				{# <div class="form-group"> #}
+				{# <label for="exampleFormControlFile1">Example file input</label> #}
+				{# <input type="file" class="form-control-file" id="exampleFormControlFile1"> #}
+				{# </div> #}
+				{# {{ form_widget(form)}} #}
+				{# {{ form_errors(form) }} #}
+				{# <div class="form-control"> {{ form_widget(form.firstname, {'attr': {'class': 'form-control form-control-sm'}}) }}
+																																												
+																																																	<div class="form-error">
+																																																		{{ form_errors(form.firstname) }}
+																																																	</div>
+																																																</div> #}
+
+					<div class="form-row"> <div class="form-group col-md-6">
+						{{ form_label(form.firstname) }}
+						{{ form_widget(form.firstname, {'attr': {'class': 'form-control-sm'}}) }}
+					</div>
+					<div class="form-group col-md-6">
+						{{ form_label(form.lastname) }}
+						{{ form_widget(form.lastname, {'attr': {'class': 'form-control-sm'}}) }}
+					</div>
+					<div class="form-group col-md-12">
+						{{ form_label(form.email) }}
+						{{ form_widget(form.email, {'attr': {'class': 'form-control-sm'}}) }}
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-8">
+							{{ form_label(form.experience) }}
+							{{ form_widget(form.experience, {'attr': {'class': 'form-control-sm'}}) }}
+						</div>
+						<div class="form-group col-md-4">
+							{{ form_label(form.postalCode) }}
+							{{ form_widget(form.postalCode, {'attr': {'class': 'form-control-sm'}}) }}
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						{{ form_label(form.type) }}
+						{{ form_widget(form.type, {'attr': {'class': 'form-control-sm'}}) }}
+					</div>
+					<div class="form-group col-md-12">
+						{{ form_label(form.resumeFile) }}
+						{{ form_widget(form.resumeFile, {'attr': {'class': 'form-control-sm'}}) }}
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+					<button type="submit" class="btn btn-info">Apply</button>
+				</div>
+				{{ form_end(form)}}
+			</div>
+		</div>
+	</div>

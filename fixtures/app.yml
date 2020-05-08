@@ -1,0 +1,34 @@
+App\Entity\Company:
+  company{1..20}:
+    name: "<company()>"
+    description: "<text()>"
+    email: "<email()>"
+    phone: "<phoneNumber()>"
+
+App\Entity\Type:
+  type1:
+    name: "Security Guard"
+  type2:
+    name: "Housekeeping Supervisor"
+  type3:
+    name: "Hotel Reception"
+  type4:
+    name: "Room Attendant / Porter"
+  type5:
+    name: "Other"
+
+App\Entity\Job:
+  job{1..200}:
+    title: "Security Guard/Officer <($current)>"
+    description: "<text()>"
+    content: "&lt;h6&gt;<($current)>&lt;/h6&gt;&lt;div&gt;&lt;p&gt;Sublet Recovery is the first sublet possession recovery specialist in the UK.&lt;/p&gt;&lt;p&gt;With over 10 years of experience in the sublet industry and due to the increase in volume of disputes that the Covid-19 pandemic will bring; we are looking for fearless security officers with the right demeanour and communication skills to join our team.&lt;/p&gt;&lt;p&gt;You will work with our team securing properties, negotiating administrative re-arrangements with the occupiers and making sure that the former sub letters stay away of the property for as long as necessary.&lt;/p&gt;&lt;p&gt;The ideal candidates will need to be confident liaising face to face and by telephone with different parties (landlords, tenants, sub letters, etc). Ideally, you will hit the ground running and have transferable skills from a similar role.&lt;/p&gt;&lt;p&gt;We have operational positions and property guardianship positions available. Salaries are negotiable depending on the position, skills and availability.&lt;/p&gt;&lt;p&gt;We are looking for people to start immediately. If interested contact us with you CV and with a brief description about yourself and we will be in touch within 24 hours.&lt;/p&gt;&lt;p&gt;Job Types: Full-time, Contract, Permanent&lt;/p&gt;&lt;p&gt;Salary: &pound;12,000.00 to &pound;42,000.00 /year&lt;/p&gt;&lt;/div&gt;"
+    location: "<city()>"
+    company: "@company<numberBetween(1, 20)>"
+
+App\Entity\Admin:
+  user1:
+    firstname: "Mamadou"
+    lastname: "Fall"
+    email: "fall@yahoo.fr"
+    password: "password"
+    roles: "[ROLE_ADMIN]"

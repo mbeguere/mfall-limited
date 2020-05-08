@@ -1,0 +1,15 @@
+<li class="section-preview mt-3 rounded p-4">
+	<div class="">
+		<a href="{{ path('job_index', {'slug': job.slug }) }}">
+			<h6 class="">{{ job.title }}</h6>
+		</a>
+		<div class="">{{ job.company.name }}</div>
+		<div class="text-capitalize">
+			<i class="fas fa-map-marker-alt text-info"></i>
+			{{job.location}}
+		</div>
+		<div class="description text-muted mt-2">
+			{{substring(job.description)}}
+		</div>
+	</div>
+</li>
