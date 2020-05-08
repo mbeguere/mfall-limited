@@ -53,17 +53,20 @@ class CreateUserCommand extends Command
         if ($email) {
             $io->note(sprintf('You passed an email: %s', $email));
         }
-
         $admin = new Admin();
         $admin
             ->setFirstname($firstname)
             ->setLastname($lastname)
             ->setEmail($email)
-            ->setRoles(['ROLE_ADMIN'])
-            ->setPassword($this->encoder->encodePassword($admin, 'password'))
-        ;
+            ->setRoles(['ROLE_ADMIN']);
 
-        $io->success('You have a new command! Now make it your own! Pass --help to see your options.');
+        $admin->setPassword($this->encoder->encodePassword($admin, 'password'));
+
+        $this->em->persist($admin);
+
+        $this->em->flush();
+
+        $io->success('User inserted: ' . $firstname . ' ' . $lastname);
 
         return 0;
     }
