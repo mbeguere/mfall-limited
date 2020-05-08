@@ -53,7 +53,11 @@ class CreateUserCommand extends Command
         if ($email) {
             $io->note(sprintf('You passed an email: %s', $email));
         }
-        $admin = new Admin();
+        $admin = $this->em->getRepository(Admin::class)->findOneBy(['email' => $email]);
+        if (!$admin) {
+            $admin = new Admin();
+        }
+        
         $admin
             ->setFirstname($firstname)
             ->setLastname($lastname)
