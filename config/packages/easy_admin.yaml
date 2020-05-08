@@ -28,6 +28,7 @@ easy_admin:
           - description
           - { property: "content", type: "fos_ckeditor" }
           - { property: "details", type: "fos_ckeditor" }
+          - location
           - company
     Type:
       class: App\Entity\Type

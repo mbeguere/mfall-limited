@@ -2,15 +2,23 @@
 	<div class="card">
 		<div class="card-body">
 			<h5 class="card-title">{{ job.title }}</h5>
-			<p class="card-text" style="font-size: 20px;">{{ job.company.name }}
-				-
-				<i class="fas fa-map-marker-alt text-info"></i>
-				{{job.location}}</p>
-			<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Apply</a>
+			<div class="d-flex">
+				<div class="card-text" style="font-size: 20divx;">{{ job.company.name }}
+					-
+					<i class="fas fa-map-marker-alt text-info"></i>
+					{{job.location}}</div>
+				<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Apply</a>
+			</div>
 		</div>
 	</div>
-	<div class="content border rounded-bottom p-4" style="font-size: 18px;">
-		{{ html_entity_decode(job.content) | raw }}</div>
+	<div class="content border-left border-right border-bottom rounded-bottom- p-4" style="font-size: 18px;">
+		<h5 style="border-bottom: 1px solid #4582EC;">Job description</h5>
+		{{ html_entity_decode(job.content) | raw }}
+
+		<h5 style="border-bottom: 1px solid #4582EC; margin-top: 10px;">Details</h5>
+		{{ html_entity_decode(job.details) | raw }}
+
+	</div>
 </div>
 {# Modal #}
 {% include "apply/form.html.twig" with {'job': job}%}
