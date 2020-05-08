@@ -26,11 +26,9 @@ easy_admin:
         fields:
           - title
           - description
-          - content
-          - details
-          # - { property: "content", type: "fos_ckeditor" }
-          # - { property: "details", type: "fos_ckeditor" }
-          - entreprise
+          - { property: "content", type: "fos_ckeditor" }
+          - { property: "details", type: "fos_ckeditor" }
+          - company
     Type:
       class: App\Entity\Type
     Company:
@@ -41,7 +39,7 @@ easy_admin:
     menu:
       - { entity: "Admin", icon: "user" }
       - { entity: "Applicant", icon: "user", label: "Applicants" }
-      - { entity: "Company", icon: "building", label: "Entreprises" }
+      - { entity: "Company", icon: "building", label: "Companies" }
       - { entity: "Type", icon: "tag", label: "Types" }
       - { entity: "Job", icon: "address-card", label: "Jobs" }
 
