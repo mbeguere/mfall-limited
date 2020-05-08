@@ -1,5 +1,7 @@
 <?php
 
+var_dump('COOOOL');
+
 use App\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
@@ -10,14 +12,6 @@ if ($_SERVER['APP_DEBUG']) {
     umask(0000);
 
     Debug::enable();
-}
-
-
-$trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false;
-$trustedProxies = $trustedProxies ? explode(',', $trustedProxies) : [];
-if($_SERVER['APP_ENV'] == 'prod') $trustedProxies[] = $_SERVER['REMOTE_ADDR'];
-if($trustedProxies) {
-    Request::setTrustedProxies($trustedProxies, Request::HEADER_X_FORWARDED_AWS_ELB);
 }
 
 if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? false) {
