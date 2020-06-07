@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Registration{% endblock %}
+
+{% block body %}
+    <h4 class="border-bottom mb-4 border-primary">Registration</h4>
+	<div class="border rounded p-4" role="document">
+		{{ form_start(form, {'method': 'POST', 'action': path('registration_index')})}}
+		<div class="content">
+			{% include "jobs/form.html.twig" with {'form': form}%}
+			{{ form_end(form)}}
+		</div>
+	</div>
+{% endblock %}
+

@@ -31,4 +31,4 @@ App\Entity\Admin:
     lastname: "Fall"
     email: "fall@yahoo.fr"
     password: "password"
-    roles: "[ROLE_ADMIN]"
+    # roles: ["ROLE_ADMIN"]

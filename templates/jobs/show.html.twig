@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Job: {{ job.title }} {% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+		{% include "jobs/alert.html.twig" with { message: message } %}
+	{% endfor %}
+	<div class="">
+		<div class="">
+			<div class="card-body">
+				<h4 class="card-title">{{ job.title }}</h4>
+				<div class="d-flex justify-content-between">
+					<div class="card-text">{{ job.company.name }}
+						-
+						<i class="fas fa-map-marker-alt text-info"></i>
+						{{job.location}}</div>
+					{# <div>
+						<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Apply</a>
+					</div> #}
+				</div>
+			</div>
+		</div>
+		<div class="content p-4 text-justify">
+			<h5 class="border-bottom border-primary mb-4">Job description</h5>
+			{{ html_entity_decode(job.content) | raw }}
+
+			{% if job.details is not null %}
+				<h5 class="border-bottom border-primary mb-4 mt-4">Details</h5>
+				{{ html_entity_decode(job.details) | raw }}
+			{% endif %}
+		</div>
+	</div>
+	{# FORM APPLY #}
+	<div class="border rounded p-4" role="document">
+		{{ form_start(form, {'method': 'POST', 'action': path('job_show', {'slug': job.slug})})}}
+		<div class="content">
+			{% include "jobs/form.html.twig" with {'form': form}%}
+			{{ form_end(form)}}
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+

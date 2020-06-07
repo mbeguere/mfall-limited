@@ -1,15 +1,17 @@
-<li class="section-preview mt-3 rounded p-4">
-	<div class="">
-		<a href="{{ path('job_index', {'slug': job.slug }) }}">
-			<h6 class="">{{ job.title }}</h6>
-		</a>
-		<div class="">{{ job.company.name }}</div>
-		<div class="text-capitalize">
-			<i class="fas fa-map-marker-alt text-info"></i>
-			{{job.location}}
-		</div>
-		<div class="description text-muted mt-2">
-			{{substring(job.description)}}
-		</div>
-	</div>
-</li>
+<div class="job row col-12 pt-2 pb-2 mb-3 align-items-center border rounded {% if loop.index is odd %}odd{% else %}even{% endif %}">
+    <div class="col-md-4">
+        <a href="{{ path('job_show', {'slug': job.slug }) }}">
+            <h6 class="">{{ job.title }}</h6>
+        </a>
+    </div>
+    <div class="col-md-4">{{ job.company.name }}</div>
+    <div class="col-md-3 text-capitalize">
+        <i class="fas fa-map-marker-alt text-info"></i>
+        {{job.location}}
+    </div>
+    <div class="col-md-1">
+        <a href="{{ path('job_show', {'slug': job.slug }) }}">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+</div>

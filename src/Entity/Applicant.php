@@ -27,7 +27,7 @@ class Applicant extends User
      */
     private $resumeFile;
 
-     /**
+    /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
      */
@@ -51,6 +51,7 @@ class Applicant extends User
     private $type;
 
     /**
+     * @ORM\Column(nullable=true)
      * @ORM\ManyToOne(targetEntity="App\Entity\Job", inversedBy="applicants")
      */
     private $job;

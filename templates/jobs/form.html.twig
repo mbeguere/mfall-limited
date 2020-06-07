@@ -1,0 +1,36 @@
+<div class="content">
+<div class="form-row">
+	<div class="form-group col-md-6">
+		{{ form_label(form.firstname) }}
+		{{ form_widget(form.firstname, {'attr': {'class': 'form-control-sm'}}) }}
+	</div>
+	<div class="form-group col-md-6">
+		{{ form_label(form.lastname) }}
+		{{ form_widget(form.lastname, {'attr': {'class': 'form-control-sm'}}) }}
+	</div>
+	<div class="form-group col-md-12">
+		{{ form_label(form.email) }}
+		{{ form_widget(form.email, {'attr': {'class': 'form-control-sm'}}) }}
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-8">
+			{{ form_label(form.experience) }}
+			{{ form_widget(form.experience, {'attr': {'class': 'form-control-sm'}}) }}
+		</div>
+		<div class="form-group col-md-4">
+			{{ form_label(form.postalCode) }}
+			{{ form_widget(form.postalCode, {'attr': {'class': 'form-control-sm'}}) }}
+		</div>
+	</div>
+	<div class="form-group col-md-12">
+		{{ form_label(form.type) }}
+		{{ form_widget(form.type, {'attr': {'class': 'form-control-sm'}}) }}
+	</div>
+	<div class="form-group col-md-12">
+		{{ form_label(form.resumeFile) }}
+		{{ form_widget(form.resumeFile, {'attr': {'class': 'form-control-sm'}}) }}
+	</div>
+</div>
+<div class="row p-3">
+	<button type="submit" class="btn btn-info col-md-2 ml-auto">Apply</button>
+</div>

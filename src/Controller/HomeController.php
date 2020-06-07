@@ -2,21 +2,19 @@
 
 namespace App\Controller;
 
-use App\Entity\Applicant;
-use App\Form\ApplicantType;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
+use App\Repository\JobRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
     /**
      * @Route("/", name="home_index")
      */
-    public function index()
+    public function index(JobRepository $jobRepo)
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('jobs/index.html.twig', [
+            'jobs' => $jobRepo->findBy([], ['createdAt' => 'DESC'])
         ]);
     }
 }

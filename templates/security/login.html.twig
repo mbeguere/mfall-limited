@@ -70,28 +70,9 @@
 			}
 		</style>
 		<!-- Custom styles for this template -->
-		<link href="signin.css" rel="stylesheet">
 	</head>
 	<body
 		class="text-center">
-		{# <form class="form-signin">
-															<img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-															<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-															<label for="inputEmail" class="sr-only">Email address</label>
-															<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-															<label for="inputPassword" class="sr-only">Password</label>
-															<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-															<div class="checkbox mb-3">
-																<label>
-																	<input type="checkbox" value="remember-me">
-																	Remember me
-																</label>
-															</div>
-															<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-															<p class="mt-5 mb-3 text-muted">&copy; MFALL LIMITED -
-																{{ 'now' | date('Y') }}</p>
-														</form> #}
-
 		<form class="form-signin" method="post">
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -106,24 +87,12 @@
 			{% endif %}
 
 			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-			<label for="inputEmail" class="sr-only">Email</label>
-			<input type="email" value="{{ last_username }}" name="_username" id="inputEmail" placeholder="Email address" class="form-control" required autofocus>
-			<label for="inputPassword" class="sr-only">Password</label>
-			<input type="password" name="_password" id="inputPassword" class="form-control" placeholder="Password" required>
+			<label for="email" class="sr-only">Email</label>
+			<input type="email" value="{{ last_username }}" name="_username" id="email" placeholder="Email address" class="form-control" required autofocus>
+			<label for="password" class="sr-only">Password</label>
+			<input type="password" name="_password" id="password" class="form-control" placeholder="Password" required>
 
-			<input
-			type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-			{#
-																		        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-																		        See https://symfony.com/doc/current/security/remember_me.html
-																		
-																		        <div class="checkbox mb-3">
-																		            <label>
-																		                <input type="checkbox" name="_remember_me"> Remember me
-																		            </label>
-																		        </div>
-																		    #}
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 			<button class="btn btn-lg btn-primary" type="submit">
 				Sign in

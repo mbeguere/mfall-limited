@@ -19,8 +19,8 @@ require("bootstrap");
 require("./paginathing");
 
 $(document).ready(function ($) {
-  $(".list-group").paginathing({
-    perPage: 5,
+  $("#jobs").paginathing({
+    perPage: 10,
     limitPagination: 3,
     containerClass: "pagination d-flex justify-content-center",
     pageNumbers: true,
