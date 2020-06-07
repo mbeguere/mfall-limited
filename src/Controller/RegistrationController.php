@@ -2,13 +2,15 @@
 
 namespace App\Controller;
 
-use App\Entity\Applicant;
 use App\Entity\Job;
+use App\Entity\Applicant;
+use App\EventSubscriber\MailerSubscriber;
 use App\Form\ApplicantType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RegistrationController extends AbstractController
 {
@@ -27,6 +29,9 @@ class RegistrationController extends AbstractController
             $em->flush();
 
             $this->addFlash('success', 'Your demand were saved!');
+
+            $dispatcher = new EventDispatcher();
+            $dispatcher->addSubscriber(new MailerSubscriber());
 
             return $this->redirectToRoute("home_index");
         }
